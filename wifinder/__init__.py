@@ -74,36 +74,37 @@ class WiFinder(Gtk.Window):
 				
 			aplist[eap] = aplist[eap].strip()
 			
-			apinfos = re.findall(r'\S+', aplist[eap])
-			
-			"""tmac = aplist[eap][0:17]
-			tssid = aplist[eap][19:41].strip()
-			tmode = aplist[eap][41:49].strip()
-			tchan = aplist[eap][49:55].strip()
-			trate = aplist[eap][55:67].strip()
-			tsignal = aplist[eap][67:75].strip()
-			tsec = aplist[eap][81:].strip()"""
-			
-			tmac = apinfos[0]
-			tssid = apinfos[1]
-			tmode = apinfos[2]
-			tchan = apinfos[3]
-			trate = apinfos[4]
-			tsignal = apinfos[5]
-			tsec = apinfos[7]
-			
-			if tmac != "":
-				apdict = {
-					"mac": tmac,
-					"ssid": tssid,
-					"mode": tmode,
-					"chan": tchan,
-					"rate": trate,
-					"signal": tsignal if tsignal != "" else "0",
-					"sec": tsec
-				}
+			if aplist[eap] != "":
+				apinfos = re.findall(r'\S+', aplist[eap])
 				
-				outaplist.append(apdict)
+				"""tmac = aplist[eap][0:17]
+				tssid = aplist[eap][19:41].strip()
+				tmode = aplist[eap][41:49].strip()
+				tchan = aplist[eap][49:55].strip()
+				trate = aplist[eap][55:67].strip()
+				tsignal = aplist[eap][67:75].strip()
+				tsec = aplist[eap][81:].strip()"""
+				
+				tmac = apinfos[0]
+				tssid = apinfos[1]
+				tmode = apinfos[2]
+				tchan = apinfos[3]
+				trate = apinfos[4]
+				tsignal = apinfos[5]
+				tsec = apinfos[7]
+				
+				if tmac != "":
+					apdict = {
+						"mac": tmac,
+						"ssid": tssid,
+						"mode": tmode,
+						"chan": tchan,
+						"rate": trate,
+						"signal": tsignal if tsignal != "" else "0",
+						"sec": tsec
+					}
+					
+					outaplist.append(apdict)
 		
 		#print(outaplist)
 		GLib.idle_add(self.DoUpdateApList, outaplist)
