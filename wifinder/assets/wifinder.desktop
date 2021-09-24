@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=WiFinder
+GenericName=WiFinder
+Terminal=false
+Type=Application
+Categories=Application
+Icon=wifinder
+Exec=wifinder
+StartupWMClass=wifinder
+X-Purism-FormFactor=Workstation;Mobile;
