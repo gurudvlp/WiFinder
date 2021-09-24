@@ -73,13 +73,22 @@ class WiFinder(Gtk.Window):
 				
 			aplist[eap] = aplist[eap].strip()
 			
-			tmac = aplist[eap][0:17]
+			apinfos = re.findall(r'\S+', aplist[eap])
+			
+			"""tmac = aplist[eap][0:17]
 			tssid = aplist[eap][19:41].strip()
 			tmode = aplist[eap][41:49].strip()
 			tchan = aplist[eap][49:55].strip()
 			trate = aplist[eap][55:67].strip()
 			tsignal = aplist[eap][67:75].strip()
-			tsec = aplist[eap][81:].strip()
+			tsec = aplist[eap][81:].strip()"""
+			
+			tmac = apinfos[0]
+			tmode = apinfos[1]
+			tchan = apinfos[2]
+			trate = apinfos[3]
+			tsignal = apinfos[4]
+			tsec = apinfos[6]
 			
 			if tmac != "":
 				apdict = {
