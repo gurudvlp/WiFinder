@@ -1,5 +1,6 @@
 import os, io, sys, subprocess, gi, threading
 import time
+import re
 
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, GdkPixbuf, Gio, GLib
