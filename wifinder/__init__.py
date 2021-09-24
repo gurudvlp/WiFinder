@@ -33,7 +33,7 @@ class WiFinder(Gtk.Window):
 		
 		self.macentry = Gtk.SearchEntry()
 		self.macentry.set_text("")
-		#self.macentry.connect("activate", self.OnSetMac)
+		self.macentry.connect("activate", self.OnSetMac)
 		#self.macentry.get_style_context().add_class('app-theme')
 		macbox.pack_start(self.macentry, True, True, 0)
 
@@ -199,7 +199,9 @@ class WiFinder(Gtk.Window):
 		
 		self.show_all()
 		
-
+	def OnSetMac(self, event):
+		pass
+		
 app = WiFinder()
 app.connect("destroy", Gtk.main_quit)
 app.show_all()
