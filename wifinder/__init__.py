@@ -90,8 +90,8 @@ class WiFinder(Gtk.Window):
 				tmode = apinfos[2]
 				tchan = apinfos[3]
 				trate = apinfos[4]
-				tsignal = apinfos[5]
-				tsec = apinfos[7]
+				tsignal = apinfos[6]
+				tsec = apinfos[8]
 				
 				if tmac != "":
 					apdict = {
